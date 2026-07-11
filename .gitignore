@@ -1,0 +1,40 @@
+# ===== Secrets & credentials — NEVER commit =====
+# NetBox API token, device creds, environment config
+.env
+.env.*
+*.token
+netbox_token*
+secrets.yml
+secrets.yaml
+
+# Ansible Vault files (encrypted, but keep out of the repo by default)
+vault.yml
+vault.yaml
+*vault*
+.vault_pass
+vault_pass.txt
+
+# Ansible-generated / local files
+*.retry
+*.log
+fact_cache/
+.ansible/
+
+# Local inventory that may contain hosts/creds (keep example templates only)
+inventory/local*
+inventory/*.local.*
+hosts.local
+
+# ===== Python (for the NetBox dynamic inventory plugin / any helper scripts) =====
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.python-version
+
+# ===== Editor / OS cruft =====
+.vscode/
+.idea/
+*.swp
+.DS_Store
