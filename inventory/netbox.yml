@@ -1,0 +1,16 @@
+---
+plugin: netbox.netbox.nb_inventory
+validate_certs: false
+group_by:
+  - device_roles
+compose:
+  ansible_host: primary_ip4.address.split('/')[0] if primary_ip4 is defined else (primary_ip.address.split('/')[0] if primary_ip is defined else omit)
+  device_role: device_role.name if device_role is defined else omit
+  site: site.name if site is defined else omit
+  device_type: device_type.model if device_type is defined else omit
+
+rename_variables:
+  - pattern: "^serial$"
+    repl: "netbox_serial"
+  - pattern: "^tags$"
+    repl: "netbox_tags"
