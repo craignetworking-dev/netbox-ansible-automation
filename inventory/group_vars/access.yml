@@ -1,0 +1,10 @@
+---
+device_role: access-switch
+
+vlans:
+  - id: 10
+    name: USERS
+  - id: 20
+    name: VOICE
+  - id: 99
+    name: MGMT

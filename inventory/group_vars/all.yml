@@ -1,0 +1,7 @@
+---
+ansible_connection: local
+
+domain: "lab.syntheticnet.example"
+ntp_servers:
+  - 10.255.255.1
+  - 10.255.255.2

@@ -1,0 +1,34 @@
+! Managed by Ansible - device_config role
+! Do not edit by hand
+!
+hostname {{ device_hostname }}
+ip domain-name {{ domain }}
+!
+{% for server in ntp_servers %}
+ntp server {{ server }}
+{% endfor %}
+!
+{% for vlan in vlans %}
+vlan {{ vlan.id }}
+ name {{ vlan.name }}
+{% endfor %}
+!
+interface Management0
+ description Management interface
+ ip address {{ mgmt_ip }}/{{ mgmt_prefix }}
+!
+{% for iface in interfaces %}
+interface {{ iface.name }}
+ description {{ iface.description }}
+{% if iface.mode == 'access' %}
+ switchport mode access
+ switchport access vlan {{ iface.vlan }}
+{% elif iface.mode == 'trunk' %}
+ switchport mode trunk
+ switchport trunk allowed vlan {{ iface.trunk_vlans }}
+{% elif iface.mode == 'routed' %}
+ ip address {{ iface.ip_address }}/{{ iface.ip_prefix }}
+{% endif %}
+!
+{% endfor %}
+end

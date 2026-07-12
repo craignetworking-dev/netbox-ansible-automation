@@ -1,0 +1,18 @@
+---
+device_hostname: syn-access-02
+mgmt_ip: 10.10.10.12
+mgmt_prefix: 24
+
+interfaces:
+  - name: GigabitEthernet0/1
+    description: "user-port-1"
+    mode: access
+    vlan: 10
+  - name: GigabitEthernet0/2
+    description: "guest-port-1"
+    mode: access
+    vlan: 20
+  - name: GigabitEthernet0/24
+    description: "uplink-to-syn-core-01"
+    mode: trunk
+    trunk_vlans: "10,20,99"

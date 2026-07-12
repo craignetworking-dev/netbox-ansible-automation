@@ -20,6 +20,9 @@ vault_pass.txt
 fact_cache/
 .ansible/
 
+# Rendered device configs (build artifact, not source)
+build/
+
 # Local inventory that may contain hosts/creds (keep example templates only)
 inventory/local*
 inventory/*.local.*

@@ -1,0 +1,10 @@
+---
+# Fallbacks only — real values normally come from group_vars/host_vars.
+build_dir: "{{ playbook_dir }}/../build"
+
+domain: "example.synthetic"
+ntp_servers:
+  - 10.255.255.1
+
+vlans: []
+interfaces: []

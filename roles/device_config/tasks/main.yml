@@ -1,0 +1,12 @@
+---
+- name: Ensure build output directory exists
+  ansible.builtin.file:
+    path: "{{ build_dir }}"
+    state: directory
+    mode: "0755"
+
+- name: Render device configuration
+  ansible.builtin.template:
+    src: base.j2
+    dest: "{{ build_dir }}/{{ inventory_hostname }}.cfg"
+    mode: "0644"

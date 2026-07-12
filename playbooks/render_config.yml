@@ -1,0 +1,7 @@
+---
+- name: Render synthetic device configurations
+  hosts: all
+  connection: local
+  gather_facts: false
+  roles:
+    - device_config

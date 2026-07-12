@@ -1,0 +1,8 @@
+---
+device_role: core-switch
+
+vlans:
+  - id: 99
+    name: MGMT
+  - id: 100
+    name: TRANSIT
